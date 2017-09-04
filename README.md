@@ -1,5 +1,8 @@
 # Quora Scraper
 
+[![Build Status](https://travis-ci.org/Kaelinator/quora-scraper.svg?branch=master)](https://travis-ci.org/Kaelinator/quora-scraper)
+[![Coverage Status](https://coveralls.io/repos/github/Kaelinator/quora-scraper/badge.svg?branch=master)](https://coveralls.io/github/Kaelinator/quora-scraper?branch=master)
+
 Scrape Quora for a user's statistics and information!
 I will try my best to keep up to date on Quora's ever-changing UI!
 
