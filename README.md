@@ -7,9 +7,11 @@ I will try my best to keep up to date on Quora's ever-changing UI!
 
 ## Usage
 ```js
-quora('Kael-Kirk').then(console.log)
+quora('Kael-Kirk')
+	.then(console.log)
+	.catch((err) => console.log('User not found!'))
 ```
-#### returns
+#### yields
 ```js
 {
   user: 'Kael Kirk',
