@@ -1,3 +1,4 @@
+'use strict'
 const cheerio = require('cheerio')
 
 const getData = (tag) => ((tag.html()) ? tag[0].children[0].data : null)
