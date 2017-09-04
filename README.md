@@ -10,7 +10,7 @@ quora('Kael-Kirk').then(console.log)
 #### returns
 ```js
 {
-user: 'Kael Kirk',
+	user: 'Kael Kirk',
   picture: 'https://qph.ec.quoracdn.net/main-thumb-110323423-200-xoeyjvjqbxviswiovjvldtobhaywqydo.jpeg',
   credential: '/kāl/ - Runner, developer, creator',
   answers: 66,
