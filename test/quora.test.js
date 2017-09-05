@@ -8,5 +8,5 @@ test('quora', t => {
 
 		t.equal(null, result.totalViews, 'returns null for unfilled values')
 		t.end()
-	}).catch((err) => err)
+	})
 })
