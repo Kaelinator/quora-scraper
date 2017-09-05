@@ -4,7 +4,7 @@
   "description": "Scrape Quora for a user's statistics and information!",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "tape ./test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,6 @@
     "got": "^7.1.0"
   },
   "devDependencies": {
-    "mocha": "^3.5.0"
+    "tape": "^4.8.0"
   }
 }
