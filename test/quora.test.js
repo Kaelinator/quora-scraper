@@ -1,18 +1,12 @@
 
-const tape = require('tape').test
+const test = require('tape')
 const quora = require('../index.js')
 
-tape('quora', t => {
+test('quora', t => {
 
 	quora('Marcus-Bowdidge-1').then((result) => {
 
 		t.equal(null, result.totalViews, 'returns null for unfilled values')
 		t.end()
-	})
-
-	// quora('Kael-Kirk').then((result) => {
-	//
-	// 	t.equal(null, result.totalViews, 'returns null for unfilled values')
-	// 	t.end()
-	// })
+	}).catch((err) => err)
 })
