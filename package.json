@@ -4,7 +4,7 @@
   "description": "Scrape Quora for a user's statistics and information!",
   "main": "index.js",
   "scripts": {
-    "test": "tape ./test/*.test.js --white-list quora.com"
+    "test": "tape ./test/*.test.js"
   },
   "repository": {
     "type": "git",
