@@ -3,20 +3,12 @@ const cheerio = require('cheerio')
 
 const getData = (tag) => ((tag.html()) ? tag[0].children[0].data : null)
 
-const abbreviations = {
-
-	'k': 1000,
-	'm': 1000000,
-	'b': 1000000000,
-	't': 1000000000000
-}
-
 const unabbreviate = (num) => {
-
-	const suffix = Object.keys(abbreviations)
-		.filter((abbr) => (num.substr(-1) === abbr))
-
-	return (suffix) ? parseFloat(num) * abbreviations[suffix] : parseInt(num)
+	if (/k$/.test(num)) return 1000 * parseFloat(num)
+	if (/m$/.test(num)) return 1000000 * parseFloat(num)
+	if (/b$/.test(num)) return 1000000000 * parseFloat(num)
+	if (/t$/.test(num)) return 1000000000000 * parseFloat(num)
+	return parseFloat(num)
 }
 
 exports.profile = (body) => {
