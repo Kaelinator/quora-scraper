@@ -13,17 +13,17 @@ const abbreviations = {
 
 const unabbreviate = (num) => {
 
-	let suffix = Object.keys(abbreviations)
+	const suffix = Object.keys(abbreviations)
 		.filter((abbr) => (num.substr(-1) === abbr))
 
 	return (suffix) ? parseFloat(num) * abbreviations[suffix] : parseInt(num)
 }
 
-exports.profile = (res) => {
+exports.profile = (body) => {
 
-	let $ = cheerio.load(res.body)
+	const $ = cheerio.load(body)
 
-	let profile = {
+	const profile = {
 
 		user: getData($('span.user')) || null,
 		picture: $('img.profile_photo_img')[0].attribs.src || null,
@@ -34,17 +34,17 @@ exports.profile = (res) => {
 	$('.list_count').toArray()
 		.forEach((x) => {
 
-			let key = x.prev.data.trim().toLowerCase()
-			let value = parseInt(x.children[0].data.replace(',', ''))
+			const key = x.prev.data.trim().toLowerCase()
+			const value = parseInt(x.children[0].data.replace(',', ''))
 
 			profile[key] = value
 		})
 
 	/* Credentials & Highlights */
-	let views = $('div.AnswerViewsAboutListItem.AboutListItem')
+	const views = $('div.AnswerViewsAboutListItem.AboutListItem')
 	if (views.html()) {
 
-		let metrics = views[0].children
+		const metrics = views[0].children
 			.filter((tag) => tag.name == 'span')
 			.map((tag) => tag.children[0].data)
 			.map((data) => data.split(' ')[0])
