@@ -1,7 +1,11 @@
 'use strict'
 const cheerio = require('cheerio')
 
-const getData = (tag) => ((tag.html()) ? tag[0].children[0].data : null)
+const echo        = label => data => console.log(label, data) || data
+const getData     = tag => ((tag.html()) ? childData(tag[0]) : null)
+const isSpan      = tag => tag.name == 'span'
+const childData   = tag => tag.children[0].data
+const splitify    = data => data.split(' ')[0]
 
 const abbreviations = {
 
@@ -25,9 +29,9 @@ exports.profile = (body) => {
 
 	const profile = {
 
-		user: getData($('span.user')) || null,
+		user: getData($('span.user')),
 		picture: $('img.profile_photo_img')[0].attribs.src || null,
-		credential: getData($('span.UserCredential.IdentityCredential')) || null
+		credential: getData($('span.UserCredential.IdentityCredential')),
 	}
 
 	/* Feeds */
@@ -45,9 +49,10 @@ exports.profile = (body) => {
 	if (views.html()) {
 
 		const metrics = views[0].children
-			.filter((tag) => tag.name == 'span')
-			.map((tag) => tag.children[0].data)
-			.map((data) => data.split(' ')[0])
+			.filter(isSpan)
+			.map(childData)
+			// .map(echo('Pre split:'))
+			.map(splitify)
 			.map(unabbreviate)
 
 		profile['totalViews'] = metrics[0]
