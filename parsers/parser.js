@@ -1,2 +1,2 @@
 
-exports.profile = require('./profile.js').profile
+module.exports.profile = require('./profile.js').profile

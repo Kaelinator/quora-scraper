@@ -8,14 +8,16 @@ const childData   = tag => tag.children[0].data
 const splitify    = data => data.split(' ')[0]
 
 const unabbreviate = (num) => {
+
 	if (/k$/.test(num)) return 1000 * parseFloat(num)
 	if (/m$/.test(num)) return 1000000 * parseFloat(num)
 	if (/b$/.test(num)) return 1000000000 * parseFloat(num)
 	if (/t$/.test(num)) return 1000000000000 * parseFloat(num)
+
 	return parseFloat(num)
 }
 
-exports.profile = (body) => {
+module.exports.profile = (body) => {
 
 	const $ = cheerio.load(body)
 
