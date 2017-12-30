@@ -1,6 +1,6 @@
 {
   "name": "quora-scraper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Scrape Quora for a user's statistics and information!",
   "main": "index.js",
   "scripts": {
