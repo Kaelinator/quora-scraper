@@ -36,7 +36,6 @@ module.exports.profile = (body) => {
 			const value = parseInt(x.children[0].data.replace(',', ''))
 
 			profile[key] = value
-			console.log(profile);
 		})
 
 	/* Credentials & Highlights */
