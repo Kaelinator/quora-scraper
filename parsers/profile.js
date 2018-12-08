@@ -25,7 +25,7 @@ module.exports.profile = (body) => {
 
 		user: getData($('span.user')),
 		picture: $('img.profile_photo_img')[0].attribs.src || null,
-		credential: getData($('span.UserCredential.IdentityCredential')),
+		credential: getData($('span.UserCredential')),
 	}
 
 	/* Feeds */
@@ -36,6 +36,7 @@ module.exports.profile = (body) => {
 			const value = parseInt(x.children[0].data.replace(',', ''))
 
 			profile[key] = value
+			console.log(profile);
 		})
 
 	/* Credentials & Highlights */
