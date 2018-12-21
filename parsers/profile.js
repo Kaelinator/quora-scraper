@@ -25,7 +25,7 @@ module.exports.profile = (body) => {
 
 		user: getData($('span.user')),
 		picture: $('img.profile_photo_img')[0].attribs.src || null,
-		credential: getData($('span.UserCredential.IdentityCredential')),
+		credential: getData($('span.UserCredential')),
 	}
 
 	/* Feeds */
@@ -37,6 +37,15 @@ module.exports.profile = (body) => {
 
 			profile[key] = value
 		})
+
+	/* Knows about */
+	const topicInfo = $('.topic_info')
+
+	profile['knowsAbout'] = topicInfo.map(function(i, el) {
+		const topic = $(this).children('a').children('span').text();
+		const answers = $(this).children('div').last().children('.answer_link').text().split(' ')[0]
+		return {topic, answers}
+	}).toArray()
 
 	/* Credentials & Highlights */
 	const views = $('div.AnswerViewsAboutListItem.AboutListItem')

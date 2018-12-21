@@ -8,5 +8,7 @@ const scrapeFor = (profile) =>
 
 const quora = module.exports = (profile) => scrapeFor(profile)
 
+if (process.env.NODE_ENVIRONMENT === 'dev') {
 scrapeFor('Kael-Kirk')
 	.then(console.log)
+}
